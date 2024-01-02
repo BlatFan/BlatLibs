@@ -1,0 +1,7 @@
+name: BlatLibs
+version: '${project.version}'
+main: ru.blatfan.blatlibs.BlatLibs
+api-version: '1.16'
+prefix: BlatLibs
+load: STARTUP
+authors: [BlatFan]
