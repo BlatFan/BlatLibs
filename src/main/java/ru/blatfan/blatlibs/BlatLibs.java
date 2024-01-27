@@ -19,8 +19,6 @@ public final class BlatLibs extends JavaPlugin {
         WORLDGUARD = getServer().getPluginManager().isPluginEnabled("worldguard");
         LANDS = getServer().getPluginManager().isPluginEnabled("lands");
         RESIDENCE = getServer().getPluginManager().isPluginEnabled("residence");
-
-        getLogger().info(TOWNY + " " + WORLDGUARD + " " + LANDS);
     }
 
     @Override
