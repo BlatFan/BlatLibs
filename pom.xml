@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-<modelVersion>4.0.0</modelVersion>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.blatfan</groupId>
     <artifactId>BlatLibs</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
+
     <packaging>jar</packaging>
 
     <name>BlatLibs</name>
@@ -40,6 +42,13 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
             </plugin>
         </plugins>
         <resources>
@@ -96,25 +105,27 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.5-R0.1-SNAPSHOT</version>
+            <version>1.19-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>de.tr7zw.spigotmc.maven</groupId>
-            <artifactId>tr-spigotmc-maven-plugin</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>provided</scope>
+            <groupId>me.angeschossen</groupId>
+            <artifactId>Lands</artifactId>
+            <version>6.44.2</version>
+            <scope>system</scope>
+            <systemPath>D:/plugins/BlatLibs/lib/Lands-6.44.2.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.bevkon.bukkit</groupId>
+            <artifactId>Residence</artifactId>
+            <version>5.1.4.1</version>
+            <scope>system</scope>
+            <systemPath>D:/plugins/BlatLibs/lib/Residence5.1.4.1.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.mojang</groupId>
             <artifactId>authlib</artifactId>
             <version>1.5.25</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.TechFortress</groupId>
-            <artifactId>GriefPrevention</artifactId>
-            <version>16.18</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

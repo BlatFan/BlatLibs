@@ -7,7 +7,8 @@ public final class BlatLibs extends JavaPlugin {
 
     public static boolean TOWNY;
     public static boolean WORLDGUARD;
-    public static boolean GRIEFPREVENTION;
+    public static boolean LANDS;
+    public static boolean RESIDENCE;
 
 
     @Override
@@ -16,9 +17,10 @@ public final class BlatLibs extends JavaPlugin {
 
         TOWNY = getServer().getPluginManager().isPluginEnabled("towny");
         WORLDGUARD = getServer().getPluginManager().isPluginEnabled("worldguard");
-        GRIEFPREVENTION = getServer().getPluginManager().isPluginEnabled("griefprevemtion");
+        LANDS = getServer().getPluginManager().isPluginEnabled("lands");
+        RESIDENCE = getServer().getPluginManager().isPluginEnabled("residence");
 
-        getLogger().info(TOWNY + " " + WORLDGUARD + " " + GRIEFPREVENTION);
+        getLogger().info(TOWNY + " " + WORLDGUARD + " " + LANDS);
     }
 
     @Override

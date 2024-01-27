@@ -1,7 +1,8 @@
 package ru.blatfan.blatlibs.util.worldprotection;
 
 import ru.blatfan.blatlibs.BlatLibs;
-import ru.blatfan.blatlibs.util.worldprotection.dependencies.GriefPreventionManager;
+import ru.blatfan.blatlibs.util.worldprotection.dependencies.LandsManager;
+import ru.blatfan.blatlibs.util.worldprotection.dependencies.ResidenceManager;
 import ru.blatfan.blatlibs.util.worldprotection.dependencies.TownyManager;
 import ru.blatfan.blatlibs.util.worldprotection.dependencies.WorldGuardManager;
 import java.util.ArrayList;
@@ -22,8 +23,12 @@ public class ProtectionManager {
          protectables.add(new WorldGuardManager());
       }
 
-      if (BlatLibs.GRIEFPREVENTION) {
-         protectables.add(new GriefPreventionManager());
+      if (BlatLibs.LANDS) {
+         protectables.add(new LandsManager());
+      }
+
+      if (BlatLibs.RESIDENCE) {
+         protectables.add(new ResidenceManager());
       }
 
    }

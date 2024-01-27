@@ -8,7 +8,7 @@ public class InventoryUtils {
       return freeSlots(p) > 0;
    }
 
-   private static int freeSlots(Player p) {
+   public static int freeSlots(Player p) {
       int slots = 0;
 
       for(int i = 0; i < 36; ++i) {

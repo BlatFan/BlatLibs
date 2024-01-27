@@ -1,7 +1,7 @@
 name: BlatLibs
 version: '${project.version}'
 main: ru.blatfan.blatlibs.BlatLibs
-api-version: '1.16'
+api-version: '1.19'
 prefix: BlatLibs
 load: STARTUP
 authors: [BlatFan]
