@@ -1,102 +1,124 @@
-package ru.blatfan.blatlibs.bossbar;
-
-import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-import java.util.Collection;
+import java.util.List;
 
+/**
+ * Interface for representing a BossBar in Bukkit/Spigot for Minecraft.
+ */
 public interface BossBar {
 
-	/**
-	 * @return The players which can see the BossBar
-	 */
-	Collection<? extends Player> getPlayers();
+    /**
+     * Gets the list of players who can see the BossBar.
+     *
+     * @return List of viewers
+     */
+    List<Player> getViewers();
 
-	/**
-	 * Add a player to this BossBar
-	 *
-	 * @param player {@link Player} to add
-	 */
-	void addPlayer(Player player);
+    /**
+     * Adds a player to the list of viewers for the BossBar.
+     *
+     * @param player Player to add
+     */
+    void addViewer(Player player);
 
-	/**
-	 * Remove a player from this BossBar
-	 *
-	 * @param player {@link Player} to remove
-	 */
-	void removePlayer(Player player);
+    /**
+     * Removes a player from the list of viewers for the BossBar.
+     *
+     * @param player Player to remove
+     */
+    void removeViewer(Player player);
 
-	/**
-	 * @return the {@link ru.blatfan.blatlibs.bossbar.BossBarAPI.Color}
-	 */
-	BossBarAPI.Color getColor();
+    /**
+     * Gets the color of the BossBar.
+     *
+     * @return Color of the BossBar
+     */
+    BossBarAPI.Color getColor();
 
-	/**
-	 * @param color the new {@link ru.blatfan.blatlibs.bossbar.BossBarAPI.Color}
-	 */
-	void setColor(BossBarAPI.Color color);
+    /**
+     * Sets the color of the BossBar.
+     *
+     * @param color New color for the BossBar
+     */
+    void setColor(BossBarAPI.Color color);
 
-	/**
-	 * @return the {@link ru.blatfan.blatlibs.bossbar.BossBarAPI.Style}
-	 */
-	BossBarAPI.Style getStyle();
+    /**
+     * Gets the style of the BossBar.
+     *
+     * @return Style of the BossBar
+     */
+    BossBarAPI.Style getStyle();
 
-	/**
-	 * @param style the new {@link ru.blatfan.blatlibs.bossbar.BossBarAPI.Style}
-	 */
-	void setStyle(BossBarAPI.Style style);
+    /**
+     * Sets the style of the BossBar.
+     *
+     * @param style New style for the BossBar
+     */
+    void setStyle(BossBarAPI.Style style);
 
-	/**
-	 * Modify a property
-	 *
-	 * @param property {@link ru.blatfan.blatlibs.bossbar.BossBarAPI.Property}
-	 * @param flag     whether to enable the property
-	 */
-	void setProperty(BossBarAPI.Property property, boolean flag);
+    /**
+     * Modifies a property of the BossBar.
+     *
+     * @param property Property to modify
+     * @param flag     Whether to enable or disable the property
+     */
+    void setProperty(BossBarAPI.Property property, boolean flag);
 
-	/**
-	 * @return the message
-	 */
-	String getMessage();
+    /**
+     * Gets the message displayed on the BossBar.
+     *
+     * @return Message on the BossBar
+     */
+    String getMessage();
 
-	/**
-	 * @param flag whether the BossBar is visible
-	 */
-	void setVisible(boolean flag);
+    /**
+     * Sets the visibility of the BossBar.
+     *
+     * @param visible Whether the BossBar is visible or not
+     */
+    void setVisible(boolean visible);
 
-	/**
-	 * @return whether the BossBar is visible
-	 */
-	boolean isVisible();
+    /**
+     * Checks if the BossBar is currently visible.
+     *
+     * @return True if visible, false otherwise
+     */
+    boolean isVisible();
 
-	/**
-	 * @return the progress (0.0 - 1.0)
-	 */
-	float getProgress();
+    /**
+     * Gets the progress of the BossBar (0.0 - 1.0).
+     *
+     * @return Progress of the BossBar
+     */
+    float getProgress();
 
-	/**
-	 * @param progress the new progress (0.0 - 1.0)
-	 */
-	void setProgress(float progress);
+    /**
+     * Sets the progress of the BossBar (0.0 - 1.0).
+     *
+     * @param progress New progress value
+     */
+    void setProgress(float progress);
 
-	@Deprecated
-	float getMaxHealth();
+    // Deprecated methods (to be reviewed and potentially removed)
 
-	@Deprecated
-	void setHealth(float percentage);
+    @Deprecated
+    float getMaxHealth();
 
-	@Deprecated
-	float getHealth();
+    @Deprecated
+    void setHealth(float percentage);
 
-	@Deprecated
-	void setMessage(String message);
+    @Deprecated
+    float getHealth();
 
-	@Deprecated
-	Player getReceiver();
+    @Deprecated
+    void setMessage(String message);
 
-	@Deprecated
-	Location getLocation();
+    @Deprecated
+    Player getReceiver();
 
-	@Deprecated
-	void updateMovement();
+    @Deprecated
+    Location getLocation();
+
+    @Deprecated
+    void updateMovement();
 }
