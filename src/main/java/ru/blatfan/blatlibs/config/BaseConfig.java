@@ -2,6 +2,7 @@ package ru.blatfan.blatlibs.config;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Tag;
+import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -16,17 +17,40 @@ public class BaseConfig {
     private File file;
     private YamlConfiguration config;
 
+    public BaseConfig(JavaPlugin plugin, String path, boolean hasInResource, Configuration defaultConfig){
+        this.file = new File(plugin.getDataFolder(), path);
+        this.plugin=plugin;
+        if(!file.exists())
+            if(hasInResource) {
+                plugin.saveResource(path, false);
+            } else {
+                try{
+                    file.createNewFile();
+                } catch (IOException ignore) {}
+            }
+        config = YamlConfiguration.loadConfiguration(file);
+        config.addDefaults(defaultConfig);
+        this.save();
+    }
+
     public BaseConfig(JavaPlugin plugin, String path){
         this.file = new File(plugin.getDataFolder(), path);
         this.plugin=plugin;
-        this.setup();
-    }
-    private void setup(){
-        if(!file.exists())try {
-            file.createNewFile();
-        } catch (IOException ignore) {}
+        if(!file.exists())
+            plugin.saveResource(path, false);
         config = YamlConfiguration.loadConfiguration(file);
+        this.save();
     }
+    public BaseConfig(JavaPlugin plugin, String path, Configuration defaultConfig){
+        this.file = new File(plugin.getDataFolder(), path);
+        this.plugin=plugin;
+        if(!file.exists())
+            plugin.saveResource(path, false);
+        config = YamlConfiguration.loadConfiguration(file);
+        config.addDefaults(defaultConfig);
+        this.save();
+    }
+
 
     public void load(){
         config = YamlConfiguration.loadConfiguration(file);

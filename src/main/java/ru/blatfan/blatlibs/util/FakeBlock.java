@@ -1,4 +1,4 @@
-package com.olliez4.interface4.util;
+package ru.blatfan.blatlibs.util;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
