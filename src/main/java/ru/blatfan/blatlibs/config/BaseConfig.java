@@ -33,6 +33,21 @@ public class BaseConfig {
         this.save();
     }
 
+    public BaseConfig(JavaPlugin plugin, String path, boolean hasInResource){
+        this.file = new File(plugin.getDataFolder(), path);
+        this.plugin=plugin;
+        if(!file.exists())
+            if(hasInResource) {
+                plugin.saveResource(path, false);
+            } else {
+                try{
+                    file.createNewFile();
+                } catch (IOException ignore) {}
+            }
+        config = YamlConfiguration.loadConfiguration(file);
+        this.save();
+    }
+
     public BaseConfig(JavaPlugin plugin, String path){
         this.file = new File(plugin.getDataFolder(), path);
         this.plugin=plugin;

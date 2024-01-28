@@ -5,3 +5,5 @@ api-version: '1.19'
 prefix: BlatLibs
 load: STARTUP
 authors: [BlatFan]
+depend:
+  - PlaceholderAPI
