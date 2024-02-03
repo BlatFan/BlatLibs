@@ -21,15 +21,13 @@ Options:
 ## Reload/load
 
 ```java
-BaseConfig config;
-config.load();
+public void load()
 ```
 
 ## Save
 
-```
-BaseConfig config;
-config.save();
+```java
+public void save()
 ```
 
 ## Get object of ?
