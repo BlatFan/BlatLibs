@@ -31,13 +31,23 @@ Options:
 
 
 
-## Set Title
+## Title
+
+Set title
 
 ```java
 public void setTitle(String title)
 ```
 
-## Set Item
+Get title
+
+```java
+public String getTitle()
+```
+
+## Item
+
+Set item
 
 ```java
 public void setItem(int slot, ItemStack item, ClickAction action)
@@ -50,8 +60,6 @@ Options:
 * item - ItemStack&#x20;
 * action - click action
 {% endhint %}
-
-## Add Item
 
 Add item on free slot
 
@@ -105,14 +113,30 @@ Places on all free item slots
 public void setBackground(ItemStack item)
 ```
 
-## Add Player
+## Player
+
+Open GUI for player
 
 ```java
 public void addPlayer(Player player)
 ```
 
-## Remove Player
+Close GUI for player
 
 ```java
 public void removePlayer(Player player)
+```
+
+Returns all players using the GUI
+
+```java
+public ArrayList<Player> getPlayers()
+```
+
+## Get Size
+
+Return GUI size
+
+```java
+public int getSize()
 ```

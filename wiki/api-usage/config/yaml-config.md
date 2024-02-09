@@ -2,12 +2,14 @@
 
 ## Base config creator
 
+{% code overflow="wrap" %}
 ```java
 public BaseConfig(JavaPlugin plugin, String path, boolean hasInResource, Configuration defaultConfig)
 public BaseConfig(JavaPlugin plugin, String path, boolean hasInResource)
 public BaseConfig(JavaPlugin plugin, String path)
 public BaseConfig(JavaPlugin plugin, String path, Configuration defaultConfig)
 ```
+{% endcode %}
 
 {% hint style="info" %}
 Options:

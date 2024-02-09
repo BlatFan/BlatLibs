@@ -11,3 +11,8 @@
 * [📄 Config](api-usage/config/README.md)
   * [Yaml Config](api-usage/config/yaml-config.md)
 * [GUI](api-usage/gui.md)
+* [🛡 Protection Manager](api-usage/protection-manager.md)
+* [ActionBar](api-usage/actionbar.md)
+* [Bossbar](api-usage/bossbar.md)
+* [Console](api-usage/console.md)
+* [Inventory Utils](api-usage/inventory-utils.md)

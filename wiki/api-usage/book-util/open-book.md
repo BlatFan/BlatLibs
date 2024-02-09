@@ -3,7 +3,7 @@
 
 
 ```java
-​ openPlayer(Player player, ItemStack book);
+ public static void openPlayer(Player player, ItemStack book);
 ```
 
 
