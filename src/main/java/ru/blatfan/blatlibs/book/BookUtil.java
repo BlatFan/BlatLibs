@@ -71,15 +71,6 @@ public final class BookUtil {
         p.updateInventory();
     }
 
-    /**
-     * Creates a BookBuilder instance with a written book as the Itemstack's type
-     *
-     * @return A book builder with the material of {@link Material#WRITTEN_BOOK}
-     */
-    public static BookBuilder writtenBook() {
-        return new BookBuilder(new ItemStack(Material.WRITTEN_BOOK));
-    }
-
 
     /**
      * Helps the user to create a book

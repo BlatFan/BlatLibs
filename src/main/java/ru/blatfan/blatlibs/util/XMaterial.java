@@ -95,7 +95,6 @@ public enum XMaterial {
      */
     AIR,
     ALLAY_SPAWN_EGG,
-    ALLIUM(2, "RED_ROSE"),
     AMETHYST_BLOCK,
     AMETHYST_CLUSTER,
     AMETHYST_SHARD,
@@ -117,7 +116,6 @@ public enum XMaterial {
     AXOLOTL_SPAWN_EGG,
     AZALEA,
     AZALEA_LEAVES,
-    AZURE_BLUET(3, "RED_ROSE"),
     BAKED_POTATO,
     BAMBOO,
     BAMBOO_BLOCK,

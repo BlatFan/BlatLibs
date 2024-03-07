@@ -30,6 +30,7 @@ public class BaseConfig {
             }
         config = YamlConfiguration.loadConfiguration(file);
         config.addDefaults(defaultConfig);
+        ConfigsUtils.addConfig(plugin.getName(), path, this);
         this.save();
     }
 
@@ -45,6 +46,7 @@ public class BaseConfig {
                 } catch (IOException ignore) {}
             }
         config = YamlConfiguration.loadConfiguration(file);
+        ConfigsUtils.addConfig(plugin.getName(), path, this);
         this.save();
     }
 
@@ -54,6 +56,7 @@ public class BaseConfig {
         if(!file.exists())
             plugin.saveResource(path, false);
         config = YamlConfiguration.loadConfiguration(file);
+        ConfigsUtils.addConfig(plugin.getName(), path, this);
         this.save();
     }
     public BaseConfig(JavaPlugin plugin, String path, Configuration defaultConfig){
@@ -63,6 +66,7 @@ public class BaseConfig {
             plugin.saveResource(path, false);
         config = YamlConfiguration.loadConfiguration(file);
         config.addDefaults(defaultConfig);
+        ConfigsUtils.addConfig(plugin.getName(), path, this);
         this.save();
     }
 
@@ -74,6 +78,10 @@ public class BaseConfig {
         try{
             config.save(file);
         } catch (IOException ignore) {}
+    }
+
+    public void addDefault(String path, Object value){
+        config.addDefault(path, value);
     }
 
     public Object get(String key){

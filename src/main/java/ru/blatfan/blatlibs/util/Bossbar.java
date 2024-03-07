@@ -1,5 +1,6 @@
 package ru.blatfan.blatlibs.util;
 
+import org.bukkit.plugin.java.JavaPlugin;
 import ru.blatfan.blatlibs.BlatLibs;
 import org.bukkit.Bukkit;
 import org.bukkit.boss.BarColor;
@@ -11,7 +12,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.HashMap;
 
 public class Bossbar {
-    private static final BlatLibs PLUGIN = BlatLibs.instance;
+    private static final JavaPlugin PLUGIN = BlatLibs.getInstance();
     private static final HashMap<Player, Bar> bossbars = new HashMap<>();
 
     private static class Bar {

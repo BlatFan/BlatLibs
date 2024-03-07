@@ -1,10 +1,8 @@
 package ru.blatfan.blatlibs.util.worldprotection;
 
 import ru.blatfan.blatlibs.BlatLibs;
-import ru.blatfan.blatlibs.util.worldprotection.dependencies.LandsManager;
-import ru.blatfan.blatlibs.util.worldprotection.dependencies.ResidenceManager;
-import ru.blatfan.blatlibs.util.worldprotection.dependencies.TownyManager;
-import ru.blatfan.blatlibs.util.worldprotection.dependencies.WorldGuardManager;
+import ru.blatfan.blatlibs.util.worldprotection.dependencies.*;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.bukkit.Location;
@@ -15,29 +13,32 @@ public class ProtectionManager {
    public static ArrayList<ProtectionBase> protectables = new ArrayList();
 
    public ProtectionManager() {
-      if (BlatLibs.TOWNY) {
+      if (BlatLibs.isTOWNY()) {
          protectables.add(new TownyManager());
       }
 
-      if (BlatLibs.WORLDGUARD) {
+      if (BlatLibs.isWORLDGUARD()) {
          protectables.add(new WorldGuardManager());
       }
 
-      if (BlatLibs.LANDS) {
+      if (BlatLibs.isLANDS()) {
          protectables.add(new LandsManager());
       }
 
-      if (BlatLibs.RESIDENCE) {
+      if (BlatLibs.isRESIDENCE()) {
          protectables.add(new ResidenceManager());
+      }
+      if (BlatLibs.isFACTIONS()) {
+         protectables.add(new FactionsUUIDManager());
       }
 
    }
 
    public static boolean canBreak(JavaPlugin plugin, Location location, Player player) {
-      Iterator var4 = protectables.iterator();
+      Iterator protectablesIt = protectables.iterator();
 
-      while(var4.hasNext()) {
-         ProtectionBase protect = (ProtectionBase)var4.next();
+      while(protectablesIt.hasNext()) {
+         ProtectionBase protect = (ProtectionBase)protectablesIt.next();
          if (!protect.canBreak(plugin, player, location)) {
             return false;
          }
@@ -47,10 +48,10 @@ public class ProtectionManager {
    }
 
    public static boolean canInteract(JavaPlugin plugin, Location location, Player player) {
-      Iterator var4 = protectables.iterator();
+      Iterator protectablesIt = protectables.iterator();
 
-      while(var4.hasNext()) {
-         ProtectionBase protect = (ProtectionBase)var4.next();
+      while(protectablesIt.hasNext()) {
+         ProtectionBase protect = (ProtectionBase)protectablesIt.next();
          if (!protect.canInteract(plugin, player, location)) {
             return false;
          }
@@ -63,10 +64,10 @@ public class ProtectionManager {
       if (location.getBlock().getType().isInteractable() & !player.isSneaking()) {
          return false;
       } else {
-         Iterator var4 = protectables.iterator();
+         Iterator protectablesIt = protectables.iterator();
 
-         while(var4.hasNext()) {
-            ProtectionBase protect = (ProtectionBase)var4.next();
+         while(protectablesIt.hasNext()) {
+            ProtectionBase protect = (ProtectionBase)protectablesIt.next();
             if (!protect.canPlace(plugin, player, location)) {
                return false;
             }

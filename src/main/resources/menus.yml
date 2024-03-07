@@ -1,0 +1,52 @@
+backItem:
+  item: BARRIER
+  name: " "
+  lore:
+    - "   &cBack  "
+    - ""
+  enchant: false
+  modeldata: 0
+combatItem:
+  item: IRON_SWORD
+  name: " "
+  lore:
+    - "   &cCombat  "
+    - ""
+  enchant: true
+  modeldata: 0
+miningItem:
+  item: IRON_PICKAXE
+  name: " "
+  lore:
+    - "   &7Mining  "
+    - ""
+  enchant: true
+  modeldata: 0
+organismItem:
+  item: IRON_CHESTPLATe
+  name: " "
+  lore:
+    - "   &bOrganism  "
+    - ""
+  enchant: true
+  modeldata: 0
+bgItem:
+  item: GRAY_STAINED_GLASS_PANE
+  name: " "
+  lore:
+  enchant: false
+  modeldata: 0
+
+menu:
+  main:
+    title: "Skill Menu"
+    backgroundItem: "bg" #without "Item"
+  combat:
+    title: "Combat Menu"
+    backgroundItem: "bg"
+  mining:
+    title: "Mining Menu"
+    backgroundItem: "bg"
+  organism:
+    title: "Organism Menu"
+    backgroundItem: "bg"

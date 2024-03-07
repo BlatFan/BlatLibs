@@ -1,7 +1,9 @@
 package ru.blatfan.blatlibs.util.gui;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
+
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,24 +20,40 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class GUI implements Listener {
+   @Getter
    private final int size;
+   @Getter
    private String title;
-   private final ArrayList<Player> players = new ArrayList();
+   @Getter
+   private final ArrayList<Player> players = new ArrayList<>();
+   @Getter
    private final JavaPlugin plugin;
    private Inventory inventory;
+   @Getter
+   @Setter
    private boolean locked = false;
+   @Getter
+   @Setter
    private boolean isDragLocked = true;
+   @Getter
    private int page = 1;
+   @Getter
    private int maxPages = 1;
+   @Getter
+   @Setter
    private boolean isPaged = false;
+   @Getter
+   @Setter
    private boolean UNREGISTERED = true;
    private CloseAction closeAction = null;
+   @Setter
    private ClickAction onClickAction = null;
+   @Setter
    private DragAction onDragAction = null;
-   private HashMap<ItemStack, ClickAction> clickables = new HashMap();
+   private HashMap<ItemStack, ClickAction> clickables = new HashMap<>();
 
    public void setTitle(String title) {
-      ArrayList<Player> playersClone = new ArrayList(this.players);
+      ArrayList<Player> playersClone = new ArrayList<>(this.players);
       playersClone.forEach((player) -> {
          this.players.remove(player);
       });
@@ -220,7 +238,6 @@ public class GUI implements Listener {
          this.plugin.getServer().getPluginManager().registerEvents(this, this.plugin);
          this.UNREGISTERED = false;
       }
-
    }
 
    private void openInventory(Player player) {
@@ -232,45 +249,13 @@ public class GUI implements Listener {
       player.closeInventory();
    }
 
-   public int getSize() {
-      return this.size;
-   }
-
-   public String getTitle() {
-      return this.title;
-   }
-
-   public ArrayList<Player> getPlayers() {
-      return this.players;
-   }
-
    public Inventory getRawInventory() {
       return this.inventory;
-   }
-
-   public JavaPlugin getPlugin() {
-      return this.plugin;
    }
 
    public void setPaged() {
       this.isPaged = true;
       this.setPage(1);
-   }
-
-   public boolean isPaged() {
-      return this.isPaged;
-   }
-
-   public int getMaxPages() {
-      return this.maxPages;
-   }
-
-   public void setMaxPages(int maxPages) {
-      this.maxPages = maxPages;
-   }
-
-   public int getPage() {
-      return this.page;
    }
 
    public void clear() {
@@ -285,28 +270,33 @@ public class GUI implements Listener {
       this.page = page;
       this.clear();
    }
+   /*
+   @NotNull
+   @Override
+   public Map<String, Object> serialize() {
+      Map<String, Object> map = new HashMap<>();
+      Map<String, Object> inv = new HashMap<>();
+      List<UUID> players = new ArrayList<>();
 
-   public boolean isLocked() {
-      return this.locked;
-   }
+      map.put("title", title);
+      map.put("size", size);
+      map.put("isDragLocked", isDragLocked);
+      map.put("isPaged", isPaged);
+      map.put("page", page);
+      map.put("maxPages", maxPages);
+      map.put("UNREGISTERED", UNREGISTERED);
 
-   public void setLocked(boolean locked) {
-      this.locked = locked;
-   }
+      for (int i=0; i<getSize(); i++) {
+         map.put("%s".formatted(getSize()), getRawInventory().getItem(i));
+      }
 
-   public boolean isDragLocked() {
-      return this.isDragLocked;
-   }
+      for (Player p : getPlayers()) {
+         players.add(p.getUniqueId());
+      }
 
-   public void setDragLocked(boolean isDragLocked) {
-      this.isDragLocked = isDragLocked;
+      map.put("inventory", inv);
+      map.put("players", players);
+      return map;
    }
-
-   public void addClickAction(ClickAction onClickAction) {
-      this.onClickAction = onClickAction;
-   }
-
-   public void addDragAction(DragAction onDragAction) {
-      this.onDragAction = onDragAction;
-   }
+    */
 }
