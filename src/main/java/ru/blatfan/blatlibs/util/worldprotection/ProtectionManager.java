@@ -25,9 +25,6 @@ public class ProtectionManager {
          protectables.add(new LandsManager());
       }
 
-      if (BlatLibs.isRESIDENCE()) {
-         protectables.add(new ResidenceManager());
-      }
       if (BlatLibs.isFACTIONS()) {
          protectables.add(new FactionsUUIDManager());
       }
