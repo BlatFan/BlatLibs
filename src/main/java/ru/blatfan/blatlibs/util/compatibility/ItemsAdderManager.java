@@ -5,13 +5,13 @@ import dev.lone.itemsadder.api.ItemsAdder;
 import org.bukkit.inventory.ItemStack;
 
 public class ItemsAdderManager {
-    public ItemStack getItem(String name){
+    public static ItemStack getItem(String name){
         return CustomStack.getInstance(name).getItemStack();
     }
-    public boolean isCustomItem(ItemStack item){
+    public static boolean isCustomItem(ItemStack item){
         return ItemsAdder.isCustomItem(item);
     }
-    public boolean isCustomItem(String item){
+    public static boolean isCustomItem(String item){
         return ItemsAdder.isCustomItem(item);
     }
 }

@@ -1,6 +1,7 @@
 package ru.blatfan.blatlibs.util;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -22,7 +23,7 @@ public interface CustomBlock {
    default void setBarrier(JavaPlugin main, final Block b) {
       Bukkit.getScheduler().scheduleSyncDelayedTask(main, new Runnable() {
          public void run() {
-            b.setType(XMaterial.BARRIER.parseMaterial());
+            b.setType(Material.BARRIER);
          }
       });
    }
@@ -30,7 +31,7 @@ public interface CustomBlock {
    default void setAboveBarrier(JavaPlugin main, final Block b) {
       Bukkit.getScheduler().scheduleSyncDelayedTask(main, new Runnable() {
          public void run() {
-            b.getLocation().add(0.0D, 1.0D, 0.0D).getBlock().setType(XMaterial.BARRIER.parseMaterial());
+            b.getLocation().add(0.0D, 1.0D, 0.0D).getBlock().setType(Material.BARRIER);
          }
       });
    }

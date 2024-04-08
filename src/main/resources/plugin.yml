@@ -4,6 +4,6 @@ main: ru.blatfan.blatlibs.BlatLibs
 api-version: '1.16'
 prefix: BlatLibs
 load: STARTUP
+softdepend: [WorldEdit, FasyAsyncWorldEdit, ItemsAdder, WorldGuard, Towny, Lands, GriefPrevention, Residence, FactionsUUID]
 authors: [BlatFan]
-depend:
-  - PlaceholderAPI
+depend: [PlaceholderAPI]
