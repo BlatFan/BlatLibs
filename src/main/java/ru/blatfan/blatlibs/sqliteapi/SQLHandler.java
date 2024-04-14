@@ -1,10 +1,13 @@
 package ru.blatfan.blatlibs.sqliteapi;
 
+import lombok.Getter;
+
 import java.io.File;
 import java.sql.*;
 
 public class SQLHandler {
 
+	@Getter
 	private static Connection connection = null;
 	private static boolean debug = false;
 	private final String filePath;
@@ -18,12 +21,8 @@ public class SQLHandler {
 		this.filePath = filePath;
 		debug = debugMode;
 	}
-
-
-	public static Connection getConnection() {
-		return connection;
-	}
-
+	
+	
 	public static ResultSet sqlQuery(final String sql) {
 		if (debug)
 			System.out.println("SQL QUERY: " + sql);

@@ -1,5 +1,6 @@
 package ru.blatfan.blatlibs.player;
 
+import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
@@ -10,7 +11,21 @@ import org.bukkit.event.HandlerList;
  */
 public class PlayerDataChangedEvent extends Event {
     private static final HandlerList handlers = new HandlerList();
+    /**
+     * -- GETTER --
+     *  Gets the player associated with this event.
+     *
+     * @return The player whose data has changed.
+     */
+    @Getter
     private final Player player;
+    /**
+     * -- GETTER --
+     *  Gets the key representing the type of data that changed.
+     *
+     * @return The data key.
+     */
+    @Getter
     private final String key;
     private final String[] values;
 
@@ -26,25 +41,7 @@ public class PlayerDataChangedEvent extends Event {
         this.key = key;
         this.values = values.clone(); // Cloning for data integrity and safety.
     }
-
-    /**
-     * Gets the player associated with this event.
-     *
-     * @return The player whose data has changed.
-     */
-    public Player getPlayer() {
-        return player;
-    }
-
-    /**
-     * Gets the key representing the type of data that changed.
-     *
-     * @return The data key.
-     */
-    public String getKey() {
-        return key;
-    }
-
+    
     /**
      * Gets the new values of the data that changed.
      * Returns a clone of the values to prevent external modification.

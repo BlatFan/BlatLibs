@@ -26,8 +26,8 @@ public class Commands {
     @SuppressWarnings("unused")
     public void bl_plugins(CommandArguments arguments) {
         JsonMessage plugins = new JsonMessage();
-        int s = BlatPluginUtils.pluginList.size();
-        BlatPlugin[] pl = BlatPluginUtils.pluginList.toArray(new BlatPlugin[s]);
+        int s = BlatPlugin.blatplugins.size();
+        BlatPlugin[] pl = BlatPlugin.blatplugins.toArray(new BlatPlugin[s]);
         plugins.append(ChatColor.DARK_PURPLE+"BlatLibs Plugins:\n").save();
         plugins.append(" - ").save();
         for (int i=0; i<s; i++){
@@ -110,13 +110,13 @@ public class Commands {
     )
     @SuppressWarnings("unused")
     public void bl_broadcast(CommandArguments arguments){
-        String text = "";
+        StringBuilder text = new StringBuilder();
         for (String t1 : arguments.getArguments()){
-            text = text+" "+t1;
+            text.append(" ").append(t1);
         }
-        text = ChatColor.translateAlternateColorCodes('&', text);
-        if(BlatLibs.isPAPI()) text = PlaceholderAPI.setPlaceholders(arguments.getSender(), text);
-        BlatLibs.getInstance().getConsole().broadcast(text);
+        if(BlatLibs.isPAPI()) text = new StringBuilder(PlaceholderAPI.setPlaceholders(arguments.getSender(), text.toString()));
+        text = new StringBuilder(ChatColor.translateAlternateColorCodes('&', text.toString()));
+        BlatLibs.getInstance().getConsole().broadcast(text.toString());
     }
     @Completer(
             name="bl_broadcast"

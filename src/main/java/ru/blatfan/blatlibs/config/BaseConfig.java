@@ -1,6 +1,6 @@
 package ru.blatfan.blatlibs.config;
 
-import org.bukkit.ChatColor;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Tag;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -80,12 +80,26 @@ public class BaseConfig {
         } catch (IOException ignore) {}
     }
 
+    public void addHeader(String path, String header){
+        config.options().header(header);
+    }
     public void addDefault(String path, Object value){
         config.addDefault(path, value);
     }
-
+    
+    public void copyDefault(boolean b){
+        config.options().copyDefaults(b);
+    }
+    
+    public boolean contains(String key){
+        return config.contains(key);
+    }
+    
     public Object get(String key){
         return config.get(key);
+    }
+    public void set(String key, Object value){
+        config.set(key, value);
     }
     public String getString(String key){
         return ChatColor.translateAlternateColorCodes('&', config.getString(key));

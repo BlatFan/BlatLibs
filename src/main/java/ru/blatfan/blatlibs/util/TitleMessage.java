@@ -1,7 +1,7 @@
 package ru.blatfan.blatlibs.util;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;
 
 public class TitleMessage {

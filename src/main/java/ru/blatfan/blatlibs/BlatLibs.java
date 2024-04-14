@@ -6,7 +6,10 @@ import org.bukkit.ChatColor;
 import ru.blatfan.blatlibs.commandframework.CommandFramework;
 import ru.blatfan.blatlibs.util.Console;
 import ru.blatfan.blatlibs.util.ItemsUtils;
+import ru.blatfan.blatlibs.util.Updater;
 import ru.blatfan.blatlibs.util.compatibility.ItemsAdderManager;
+
+import java.io.IOException;
 
 public class BlatLibs extends BlatPlugin {
     @Getter
@@ -28,24 +31,11 @@ public class BlatLibs extends BlatPlugin {
 
     @Override
     public void onStartEnabling(){
-    }
-
-    @Override
-    public void onEnabling() {
-    }
-
-    @Override
-    public void onEndEnabling() {
-    }
-    
-    @Override
-    public void onLoad(){
         instance = this;
         setPrefix(ChatColor.DARK_PURPLE+"[BlatLibs]");
-        setConsole(new Console(this, prefix+ChatColor.GRAY));
         getConsole().info(ChatColor.GREEN + "Enabled!");
         
-        setCommandFramework(new CommandFramework(this));
+        setProjectID(114257);
         
         getCommandFramework().registerCommands(new Commands());
         
@@ -55,6 +45,14 @@ public class BlatLibs extends BlatPlugin {
         FACTIONS=attemptHook("factions");
         ITEMSADDER=attemptHook("ItemsAdder");
         PAPI=attemptHook("PlaceholderAPI");
+    }
+
+    @Override
+    public void onEnabling() {
+    }
+
+    @Override
+    public void onEndEnabling() {
     }
 
     @Override

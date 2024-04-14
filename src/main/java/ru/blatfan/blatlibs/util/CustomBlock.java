@@ -21,18 +21,10 @@ public interface CustomBlock {
    void attemptClick(JavaPlugin var1, PlayerInteractEvent var2);
 
    default void setBarrier(JavaPlugin main, final Block b) {
-      Bukkit.getScheduler().scheduleSyncDelayedTask(main, new Runnable() {
-         public void run() {
-            b.setType(Material.BARRIER);
-         }
-      });
+      Bukkit.getScheduler().scheduleSyncDelayedTask(main, () -> b.setType(Material.BARRIER));
    }
 
    default void setAboveBarrier(JavaPlugin main, final Block b) {
-      Bukkit.getScheduler().scheduleSyncDelayedTask(main, new Runnable() {
-         public void run() {
-            b.getLocation().add(0.0D, 1.0D, 0.0D).getBlock().setType(Material.BARRIER);
-         }
-      });
+      Bukkit.getScheduler().scheduleSyncDelayedTask(main, () -> b.getLocation().add(0.0D, 1.0D, 0.0D).getBlock().setType(Material.BARRIER));
    }
 }

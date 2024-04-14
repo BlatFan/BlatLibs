@@ -1,7 +1,5 @@
 package ru.blatfan.blatlibs.util;
 
-import com.archyx.aureliumskills.api.AureliumAPI;
-import com.archyx.aureliumskills.skills.Skill;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
@@ -76,11 +74,6 @@ public class ItemBuilder {
 
     public ItemBuilder addEnchantment(Enchantment enchantment, int level){
         endItem.addEnchantment(enchantment, level);
-        return this;
-    }
-
-    public ItemBuilder setRequirements(Skill skill, int level){
-        endItem = AureliumAPI.addItemMultiplier(endItem, skill, level, true);
         return this;
     }
 
